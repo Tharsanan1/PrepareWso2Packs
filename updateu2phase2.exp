@@ -1,0 +1,21 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+
+set path [lindex $argv 0]
+
+set password [lindex $argv 1]
+
+spawn "./$path/bin/wso2update_linux"
+
+expect {
+
+    "*Password*" { send -- "$password\r" } 
+
+    
+
+}
+
+expect eof
+
+PrepareWso2Packs
